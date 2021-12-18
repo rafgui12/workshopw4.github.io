@@ -15,9 +15,16 @@ function generateFaces() {
         let randomLeft = Math.floor(Math.random()*400)+1
         face.style.top = randomTop + "px"
         face.style.left =  randomLeft + "px"
+        face.addEventListener('click', nextLevel)
         theLeftSide.appendChild(face);
         const leftSideImages = theLeftSide.cloneNode(true).lastChild;
         theRightSide.appendChild(leftSideImages);
+    }
+
+    function nextLevel() {
+        event.stopPropagation();
+        numberOfFaces += 5;
+        generateFaces();
     }
 
 }
