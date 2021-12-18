@@ -6,7 +6,7 @@ div{
     width: 500px;
     height: 500px;
 }
-#leftSide {
+#rightSide {
     left: 500px;
-    border-top: 1px solid;
+    border-left: 1px solid;
 }
