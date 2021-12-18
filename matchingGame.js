@@ -1,5 +1,6 @@
 let numberOfFaces = 5;
 const theLeftSide = document.getElementById('leftSide');
+const theRightSide = document.getElementById('rightSide');
 
 //window.addEventListener('load', generateFaces)
 //console.log("Random Number",Math.floor(Math.random()*400)+1)
@@ -15,7 +16,8 @@ function generateFaces() {
         face.style.top = randomTop + "px"
         face.style.left =  randomLeft + "px"
         theLeftSide.appendChild(face);
-
+        const leftSideImages = theLeftSide.cloneNode(true).lastChild;
+        theRightSide.appendChild(leftSideImages);
     }
 
 }
