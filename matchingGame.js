@@ -1,6 +1,7 @@
 let numberOfFaces = 5;
 const theLeftSide = document.getElementById('leftSide');
 const theRightSide = document.getElementById('rightSide');
+let level = 0;
 
 //window.addEventListener('load', generateFaces)
 //console.log("Random Number",Math.floor(Math.random()*400)+1)
@@ -19,8 +20,9 @@ function generateFaces() {
         face.style.top = randomTop + "px"
         face.style.left =  randomLeft + "px"
         face.addEventListener('click', nextLevel)
-
+        // Append icons in the left Side
         theLeftSide.appendChild(face);
+        //Clone Left Side 
         const leftSideImages = theLeftSide.cloneNode(true);
         leftSideImages.removeChild(leftSideImages.lastChild);
         theRightSide.appendChild(leftSideImages);
@@ -31,14 +33,23 @@ function generateFaces() {
 }
 
 function nextLevel() {
-    event.stopPropagation();
-    numberOfFaces += 5;
-    generateFaces();
-}
+        event.stopPropagation();
+        numberOfFaces += 5;
+        level ++;
+        while (theLeftSide.firstChild) {
+            theLeftSide.removeChild(theLeftSide.firstChild);
+            }
+        while (theRightSide.firstChild) {
+            theRightSide.removeChild(theRightSide.firstChild);
+            }
+        generateFaces();
+    }
 
 
-function gameOver(){
-    alert('Game Over')
-    document.body.removeEventListener('click', gameOver)
-    theLeftSide.removeEventListener('click', gameOver)
-}
+    function gameOver(){
+        alert('Game Over you reached the level: ' + level )
+        document.body.removeEventListener('click', gameOver)
+        theLeftSide.removeEventListener('click', gameOver)
+        console.log(level)
+        gameover = false;
+    }
