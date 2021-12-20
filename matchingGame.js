@@ -16,7 +16,7 @@ function generateFaces() {
         let randomLeft = Math.floor(Math.random()*400)+1 // Random LEFT
 
         // Properties For Faces
-        face.src = "img/smile.png"
+        face.src = "https://cdn4.iconfinder.com/data/icons/emoji-18/61/2-48.png"
         face.style.top = randomTop + "px"
         face.style.left =  randomLeft + "px"
         face.addEventListener('click', nextLevel)
@@ -50,6 +50,4 @@ function nextLevel() {
         alert('Game Over you reached the level: ' + level )
         document.body.removeEventListener('click', gameOver)
         theLeftSide.removeEventListener('click', gameOver)
-        console.log(level)
-        gameover = false;
     }
